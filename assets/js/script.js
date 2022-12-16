@@ -10,3 +10,15 @@ for  (var i=0; i <81; i++) {
   });
   offsetValue = offsetValue + 100
 }
+
+$('#searchGifBtn').on('click', function () {
+    var giphyUrl = `https://api.giphy.com/v1/gifs/search?q=${term}&apikey=pYOXbtrExM145EIidmGN2JB89VuG71Pj`;
+    var term = $('input').val();
+
+    $.ajax({
+    url: giphyUrl,
+    method: 'GET',
+    }).then(function (response) {
+        console.log(response);
+    });
+});
