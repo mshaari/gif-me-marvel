@@ -21,7 +21,7 @@ $('#searchGifBtn').on('click', function () {
     }).then(function (response) {
         console.log(response);
         for (var i=0; i<100; i++) {
-            url = response.data[i].images.preview_gif.url;
+            url = response.data[i].images.fixed_height_downsampled.url;
             $(`<img src='${url}'>`).appendTo('.gifs');
         };
     });
