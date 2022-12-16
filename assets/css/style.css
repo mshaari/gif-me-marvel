@@ -1,0 +1,43 @@
+body {
+    background-color: red;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+}
+
+header {
+    color: black;
+    font-size: 24px;
+    height: 800px;
+    padding-top: 200px;
+}  
+
+h1 {
+    color: white;
+    font-size: 100px;
+    font-weight: bolder;
+}
+
+h2 {
+    color: black;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.input{
+    width: 50%;
+    margin-right:10px;
+    margin-bottom: 25px;
+}
+
+.searchBar {
+    margin: 25px;
+    align-items: center;
+}
+
+.characterPage {
+    padding: 25px;
+}
+
+.gifs {
+    text-align: left;
+}
