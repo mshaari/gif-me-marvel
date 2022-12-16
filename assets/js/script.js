@@ -14,6 +14,7 @@
 $('#searchGifBtn').on('click', function () {
     var term = $('input').val();
     var giphyUrl = `https://api.giphy.com/v1/gifs/search?q=${term}&apikey=pYOXbtrExM145EIidmGN2JB89VuG71Pj`;
+    $(".gifs").empty();
     
     $.ajax({
     url: giphyUrl,
