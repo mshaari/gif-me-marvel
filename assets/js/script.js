@@ -20,9 +20,14 @@ $('#searchGifBtn').on('click', function () {
     method: 'GET',
     }).then(function (response) {
         console.log(response);
-        for (var i=0; i<10; i++) {
-            url = response.data[i].source
+        for (var i=0; i<100; i++) {
+            url = response.data[i].images.preview_gif.url;
             $(`<img src='${url}'>`).appendTo('.gifs');
         };
     });
+
+    
+
+    
+
 });
