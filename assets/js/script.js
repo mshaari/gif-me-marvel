@@ -21,5 +21,15 @@ $('#searchGifBtn').on('click', function () {
     method: 'GET',
     }).then(function (response) {
         console.log(response);
+        for (var i=0; i < response.length, i ++;){
+          var giphyURL = response.data[i].images.url;
+              console.log(giphyURL);
+              $('gif').attr("src", giphyURL);
+        } 
     });
+
+    
+
+    
+
 });
