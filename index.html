@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project 1</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton" rel="stylesheet">    
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
@@ -14,30 +15,43 @@
       <p>Look up descriptions of your favorite MARVEL character.</p>
       <p>Find and favorite related GIFs!</p>
       <div class="searchBar">
-        <input class="input is-rounded" type="text" placeholder="Search Character...">
+        <input class="input is-rounded" type="text" autofocus="autofocus" placeholder="Search Character...">
         <button class="button is-danger is-inverted" id="searchCharacterBtn">Search</button>
       </div>
     </header>
-    <div class="columns characterPage">
-      <div class="column is-two-fifths">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image"">
-              <img id="characterImage">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <h2 id="characterName"></h2>
-                <p id="characterDescription"></p><br>
-                <a id="marvelLink" href="#" target="_blank">Click for more information!</a>
-              </div>
-            </div>
-          </div>
+    <button class="button" id="favoriteGifs">MY FAVORITE GIFS</button>
+    <div class="characterPage">
+      <div class="columns card">
+        <div class="column is-one-fifth">
+          <figure class="image"">
+            <img id="characterImage">
+          </figure>
+        </div>
+        <div class="column is-four-fifths">
+          <h2 id="characterName"></h2>
+          <p id="characterDescription"></p><br>
+          <a id="marvelLink" href="#" target="_blank">Click for more information!</a>
         </div>
       </div>
-      <div class="column is-three-fifths gifs">
+      <div class="column gifs">
+      </div>
+    </div>
+    <div class="favoriteGifsPage">
+    </div>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <div class="modal-card-head">
+          <p class="modal-card-title"></p>
+          <button class="delete close-modal" aria-label="close"></button>
+        </div>
+        <section class="modal-card-body" id="selectedGif">
+        </section>
+        <div class="modal-card-foot">
+          <button class="button is-warning close-modal">No</button>
+          <button class="button is-danger" id="addFavorite">Yes</button>
+          <button class="button is-danger" id="deleteFavorite">Yes</button>
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
