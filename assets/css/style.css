@@ -77,6 +77,12 @@ h2 {
     width: auto;
 }
 
+#marvelAttribution {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
 .gifs {
     text-align: center;
 }
@@ -110,4 +116,19 @@ h2 {
     width: 100%;
     bottom: 0;
     height: 2.5rem;
+}
+
+@media screen and (max-width: 767px) {
+    #footer img {
+        position: relative;
+        bottom: -10px;
+        max-width: 75%;
+        max-height: 75%;
+        height: auto;
+        width: auto;
+
+    }
+    #marvelAttribution {
+        font-size: 75%;
+    }
 }
