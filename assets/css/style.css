@@ -38,6 +38,13 @@ h2 {
     align-items: center;
 }
 
+#footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 2.5rem;
+}
+
 #favoriteGifs {
     color: white;
     background-color: red;
