@@ -12,14 +12,16 @@
   <body>
     <header>
       <h1>GIF ME MARVEL</h1>
-      <p>Look up descriptions of your favorite MARVEL character.</p>
-      <p>Find and favorite related GIFs!</p>
       <div class="searchBar">
         <input class="input is-rounded" type="text" autofocus="autofocus" placeholder="Search Character...">
         <button class="button is-danger is-inverted" id="searchCharacterBtn">Search</button>
       </div>
     </header>
     <button class="button" id="favoriteGifs">MY FAVORITE GIFS</button>
+    <div class="loadingPage">
+      <h1>Scanning the Marvel Universe ...</h1>
+      <img src="./assets/images/04de2e31234507.564a1d23645bf.gif">
+    </div>
     <div class="characterPage">
       <div class="columns card">
         <div class="column is-one-fifth">
@@ -31,13 +33,13 @@
           <h2 id="characterName"></h2>
           <p id="characterDescription"></p><br>
           <a id="marvelLink" href="#" target="_blank">Click for more information!</a>
-          <p id="marvelAttribution">Data provided by Marvel. © 2022 Marvel </p>
+          <p id="marvelAttribution">Data provided by Marvel. © 2022 Marvel</p>
         </div>
       </div>
       <div class="column gifs">
       </div>
       <footer id="footer">
-        <img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"></img>
+        <img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif">
       </footer>
     </div>
     <div class="favoriteGifsPage">
@@ -58,9 +60,6 @@
         </div>
       </div>
     </div>
-    <footer id="footer">
-      <img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"></img>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
