@@ -6,16 +6,34 @@ var characterIndex = "";
 var favoriteGifs = [];
 
 function loadCharacter() {
+
     var character = $('input').val().toUpperCase();
     if (characterList.includes(character)) {
         var characterIndex = characterList.indexOf(character);
     } else if (characterList.filter(str => str.startsWith(character))) {
         var characterIndex = characterList.findIndex(str => str.startsWith(character));
     }
+
+    $('header').css({ "height": "200px", "padding-top": "25px" });
+    $('header').children('p').remove();
+    $('h1').css({ "font-size": "50px" });
+    $('.characterPage').attr("style", "display: inline-flexbox");
+    var character = $('input').val().toUpperCase();
+    if (characterList.includes(character)) {
+        var characterIndex = characterList.indexOf(character);
+    } else if (characterList.filter(str => str.startsWith(character)).length) {
+        var characterIndex = characterList.findIndex(str => str.startsWith(character));
+    }
+
+
     if (characterIndex === "" || typeof characterIndex === "undefined") {
         $('#selectedGif').empty();
         $('.modal-card-title').text("ERROR: ");
-        $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        if ($('input').val()==="") {
+            $('<p>Invalid blank input. Please enter a valid Marvel character.</p>').appendTo('#selectedGif');
+        } else {
+            $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        }
         $('#addFavorite').hide();
         $('#deleteFavorite').hide();
         $('.modal-card-foot').children('.is-warning').text('OK');
@@ -29,7 +47,7 @@ function loadCharacter() {
         if (characterDescription[characterIndex] != "") {
             $('#characterDescription').text(characterDescription[characterIndex]);
         } else {
-            $('#characterDescription').text("No character description available. Click on link below for more information.")
+            $('#characterDescription').text("No character description available. Click on link below for more information.");
         }
         $('#marvelLink').attr("href", (characterUrl[characterIndex]));
         $("#characterImage").attr("src", characterImage[characterIndex]);
@@ -81,9 +99,9 @@ function loadFavorites() {
     $('header').css({ "height": "200px", "padding-top": "25px" });
     $('header').children('p').remove();
     $('h1').css({ "font-size": "50px" });
-    $('.searchBar').attr("style", "display: none")
-    $('.characterPage').attr("style", "display: none")
-    $('.favoriteGifsPage').attr("style", "display: block")
+    $('.searchBar').attr("style", "display: none");
+    $('.characterPage').attr("style", "display: none");
+    $('.favoriteGifsPage').attr("style", "display: block");
     $('.favoriteGifsPage').empty();
     for (var i = 0; i < favoriteGifs.length; i++) {
         $('<img src=' + favoriteGifs[i] + '>').appendTo('.favoriteGifsPage');
@@ -172,11 +190,26 @@ $('input').keypress(function (e) {
     }
 })
 
+
 function fetchMarvelAPI () {
     // var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
     // var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
     var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=22cfa02cd52325c33f215b6da7bd306b&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;    var offsetValue = 0
     for (var x = 0; x < 1; x++) {
+
+function init() {
+    $('.characterPage').attr("style", "display: none");
+    $('.favoriteGifsPage').attr("style", "display: none");
+    var storedFavorites = JSON.parse(localStorage.getItem("favoriteGifs"));
+    if (storedFavorites !== null) {
+        favoriteGifs = storedFavorites;
+    };
+    //var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
+    // var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
+    var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=22cfa02cd52325c33f215b6da7bd306b&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;
+    offsetValue = 0
+    for (var x = 0; x < 25; x++) {
+
         $.ajax({
             url: marvelUrl + offsetValue,
             method: 'GET',
@@ -190,9 +223,10 @@ function fetchMarvelAPI () {
             
             };
         });
-        offsetValue = offsetValue + 100
+        offsetValue = offsetValue + 100;
     };
 };
+
 
 function init() {
     $('.searchBar').attr("style", "display: block")
@@ -211,3 +245,6 @@ function init() {
 };
 
 init()
+
+init();
+
