@@ -187,4 +187,4 @@ function init() {
     };
 };
 
-init()
+init();
