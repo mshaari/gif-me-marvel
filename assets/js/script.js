@@ -9,7 +9,7 @@ function loadCharacter() {
     $('header').css({ "height": "200px", "padding-top": "25px" });
     $('header').children('p').remove();
     $('h1').css({ "font-size": "50px" });
-    $('.characterPage').attr("style", "display: inline-flexbox")
+    $('.characterPage').attr("style", "display: inline-flexbox");
     var character = $('input').val().toUpperCase();
     if (characterList.includes(character)) {
         var characterIndex = characterList.indexOf(character);
@@ -22,7 +22,11 @@ function loadCharacter() {
     if (characterIndex === "" || typeof characterIndex === "undefined") {
         $('#selectedGif').empty();
         $('.modal-card-title').text("ERROR: ");
-        $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        if ($('input').val()==="") {
+            $('<p>Invalid blank input. Please enter a valid Marvel character.</p>').appendTo('#selectedGif');
+        } else {
+            $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        }
         $('#addFavorite').hide();
         $('#deleteFavorite').hide();
         $('.modal-card-foot').children('.is-warning').text('OK');
@@ -82,9 +86,9 @@ function loadFavorites() {
     $('header').css({ "height": "200px", "padding-top": "25px" });
     $('header').children('p').remove();
     $('h1').css({ "font-size": "50px" });
-    $('.searchBar').attr("style", "display: none")
-    $('.characterPage').attr("style", "display: none")
-    $('.favoriteGifsPage').attr("style", "display: block")
+    $('.searchBar').attr("style", "display: none");
+    $('.characterPage').attr("style", "display: none");
+    $('.favoriteGifsPage').attr("style", "display: block");
     $('.favoriteGifsPage').empty();
     for (var i = 0; i < favoriteGifs.length; i++) {
         $('<img src=' + favoriteGifs[i] + '>').appendTo('.favoriteGifsPage');
@@ -161,14 +165,14 @@ $('input').keypress(function (e) {
 })
 
 function init() {
-    $('.characterPage').attr("style", "display: none")
-    $('.favoriteGifsPage').attr("style", "display: none")
+    $('.characterPage').attr("style", "display: none");
+    $('.favoriteGifsPage').attr("style", "display: none");
     var storedFavorites = JSON.parse(localStorage.getItem("favoriteGifs"));
     if (storedFavorites !== null) {
         favoriteGifs = storedFavorites;
     };
-    var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
-    // var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
+    //var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
+    var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
     //var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=5b65324be271f167cfbc20a8c0d3c9fe3b62975c&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;
     offsetValue = 0
     for (var x = 0; x < 25; x++) {
@@ -183,7 +187,7 @@ function init() {
                 characterUrl.push(response.data.results[i].urls[0].url);
             };
         });
-        offsetValue = offsetValue + 100
+        offsetValue = offsetValue + 100;
     };
 };
 
