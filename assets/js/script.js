@@ -6,19 +6,12 @@ var characterIndex = "";
 var favoriteGifs = [];
 
 function loadCharacter() {
-    $('header').css({ "height": "200px", "padding-top": "25px" });
-    $('header').children('p').remove();
-    $('h1').css({ "font-size": "50px" });
-    $('.characterPage').attr("style", "display: inline-flexbox")
     var character = $('input').val().toUpperCase();
     if (characterList.includes(character)) {
         var characterIndex = characterList.indexOf(character);
-    } else if (characterList.filter(str => str.includes(character)).length) {
-        var characterIndex = characterList.findIndex(str => str.includes(character));
+    } else if (characterList.filter(str => str.startsWith(character))) {
+        var characterIndex = characterList.findIndex(str => str.startsWith(character));
     }
-
-    console.log(characterIndex);
-
     if (characterIndex === "" || typeof characterIndex === "undefined") {
         $('#selectedGif').empty();
         $('.modal-card-title').text("ERROR: ");
@@ -29,7 +22,7 @@ function loadCharacter() {
         $('.modal').addClass('is-active');
         $('input').val("");
         $('.modal-card-foot').children('.is-warning').on('click', function () {
-            location.reload();
+            init();
         });
     } else {
         $('#characterName').text(characterList[characterIndex]);
@@ -55,6 +48,12 @@ function loadCharacter() {
             });
             offsetValue = offsetValue + 50
         };
+        $('header').attr("style", "display: block");
+        $('.searchBar').attr("style", "display: block");
+        $('.loadingPage').attr("style", "display: none");
+        $('.characterPage').attr("style", "display: inline-flexbox");
+        $('header').css({ "height": "200px", "padding-top": "25px" });
+        $('header').children('p').remove();
         characterIndex = "";
         loadGifs();
     };
@@ -89,6 +88,7 @@ function loadFavorites() {
     for (var i = 0; i < favoriteGifs.length; i++) {
         $('<img src=' + favoriteGifs[i] + '>').appendTo('.favoriteGifsPage');
     };
+    $('<footer id="footer"><img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"></footer>').appendTo('.favoriteGifsPage');
 }
 
 $('.gifs').on('click', function (event) {
@@ -147,43 +147,66 @@ $('#favoriteGifs').on('click', function () {
 });
 
 $('h1').on('click', function () {
-    location.reload();
+    init();
 });
 
 $('#searchCharacterBtn').on('click', function () {
-    loadCharacter();
+    if ($.isEmptyObject(characterList)) {
+        $('header').attr("style", "display: none")
+        $('.searchBar').attr("style", "display: none")
+        $('.loadingPage').attr("style", "display: block")
+        $('.characterPage').attr("style", "display: none")
+        $('.favoriteGifsPage').attr("style", "display: none")
+        $('h1').css({ "font-size": "50px" });
+        // fetchMarvelAPI();
+    };
+    // loadCharacter();
 });
 
 $('input').keypress(function (e) {
     if (e.which === 13) {
-        loadCharacter();
+        if ($.isEmptyObject(characterList)) {
+            // fetchMarvelAPI();
+        };
+        // loadCharacter();
     }
 })
 
-function init() {
-    $('.characterPage').attr("style", "display: none")
-    $('.favoriteGifsPage').attr("style", "display: none")
-    var storedFavorites = JSON.parse(localStorage.getItem("favoriteGifs"));
-    if (storedFavorites !== null) {
-        favoriteGifs = storedFavorites;
-    };
-    var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
+function fetchMarvelAPI () {
+    // var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
     // var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
-    //var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=5b65324be271f167cfbc20a8c0d3c9fe3b62975c&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;
-    offsetValue = 0
-    for (var x = 0; x < 25; x++) {
+    var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=22cfa02cd52325c33f215b6da7bd306b&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;    var offsetValue = 0
+    for (var x = 0; x < 1; x++) {
         $.ajax({
             url: marvelUrl + offsetValue,
             method: 'GET',
-        }).then(function (response) {
+            async: false,
+        }).done(function (response) {
             for (var i = 0; i < response.data.results.length; i++) {
                 characterList.push(response.data.results[i].name.toUpperCase());
                 characterDescription.push(response.data.results[i].description);
                 characterImage.push(response.data.results[i].thumbnail.path + "." + response.data.results[i].thumbnail.extension);
                 characterUrl.push(response.data.results[i].urls[0].url);
+            
             };
         });
         offsetValue = offsetValue + 100
+    };
+};
+
+function init() {
+    $('.searchBar').attr("style", "display: block")
+    $('.loadingPage').attr("style", "display: none")
+    $('.characterPage').attr("style", "display: none")
+    $('.favoriteGifsPage').attr("style", "display: none")
+    $('h1').css({ "font-size": "100px" });
+    $('header').css({ "height": "800px", "padding-top": "200px" });
+    $('header').children('p').remove();
+    $('<p>Look up descriptions of your favorite MARVEL character.</p>').insertBefore('.searchBar');
+    $('<p>Find and favorite related GIFs!</p>').insertBefore('.searchBar');
+    var storedFavorites = JSON.parse(localStorage.getItem("favoriteGifs"));
+    if (storedFavorites !== null) {
+        favoriteGifs = storedFavorites;
     };
 };
 

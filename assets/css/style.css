@@ -1,10 +1,22 @@
 html {
-    background-color: red;
+    background: linear-gradient(325deg, #670909, #aa1d1d, #ff0000, #ff8383);
+    background-size: 600% 600%;
+    animation: AnimationName 10s ease infinite;
+    width: 100vw;
+    min-height: 100vh;
 }
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 body {
     font-family: 'Anton', sans-serif;
     text-align: center;
+    padding: 25px;
 }
 
 header {
@@ -45,9 +57,17 @@ h2 {
     height: 2.5rem;
 }
 
+.loadingPage{
+    padding-top: 200px;
+}
+
+.loadingPage img{
+    width: 15%;
+}
+
 #favoriteGifs {
     color: white;
-    background-color: red;
+    background-color: rgb(99,0,0);
     border: none;
     font-weight: bold;
     margin: 15px;
@@ -58,7 +78,7 @@ h2 {
 }
 
 #favoriteGifs:hover {
-    color: red;
+    color: rgb(99,0,0);
     background-color: white;
 }
 
@@ -79,16 +99,16 @@ h2 {
 
 #marvelAttribution {
     position: absolute;
-    bottom: 0;
-    right: 5px;
+    bottom: 15px;
+    right: 25px;
+}
+
+img{
+    margin: 10px;
 }
 
 .gifs {
     text-align: center;
-}
-
-.gifs img {
-    transition: transform .2s;
 }
 
 .gifs img:hover, .favoriteGifsPage img:hover {
@@ -103,18 +123,19 @@ h2 {
 }
 
 .modal-card-foot {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .modal-card-foot button {
-    width: 45%;
+    width: 50%;
     font-weight: bold;
 }
 
 #footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    text-align: right;
+    position: relative;
+    bottom: 0px;
+    padding: 10px 50px 50px 10px;
     height: 2.5rem;
 }
 
