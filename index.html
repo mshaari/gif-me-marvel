@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- title page and link stylesheets-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GIF ME MARVEL</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton" rel="stylesheet">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton">    
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
+    <!-- header/main page of application with input search bar -->
     <header>
       <h1>GIF ME MARVEL</h1>
       <div class="searchBar">
@@ -17,18 +19,26 @@
         <button class="button is-danger is-inverted" id="searchCharacterBtn">Search</button>
       </div>
     </header>
+    <!-- button to MY FAVORITE GIFS page -->
     <button class="button" id="favoriteGifs">MY FAVORITE GIFS</button>
+    <!-- loading page during initial API fetch -->
     <div class="loadingPage">
-      <h1>Scanning the Marvel Universe ...</h1>
-      <img src="./assets/images/04de2e31234507.564a1d23645bf.gif">
+      <h1>Scanning the Marvel Universe . . . </h1>
+      <img src="./assets/images/marvel_loading.gif">
+      <!-- progess info and progress bar -->
+      <p id="loadingProgress">Loading...</p>
+      <progress class="progress is-warning" max="100"></progress>
     </div>
+    <!-- character page with character information and GIFs-->
     <div class="characterPage">
       <div class="columns card">
+        <!-- chracter image -->
         <div class="column is-one-fifth">
           <figure class="image"">
             <img id="characterImage">
           </figure>
         </div>
+        <!-- character description, link, and MARVEL attribution -->
         <div class="column is-four-fifths">
           <h2 id="characterName"></h2>
           <p id="characterDescription"></p><br>
@@ -36,14 +46,14 @@
           <p id="marvelAttribution">Data provided by Marvel. © 2022 Marvel</p>
         </div>
       </div>
+      <!-- section for GIF outputs -->
       <div class="column gifs">
       </div>
-      <footer id="footer">
-        <img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif">
-      </footer>
     </div>
+    <!-- MY FAVORITE GIFS page for saved GIFs output -->
     <div class="favoriteGifsPage">
     </div>
+    <!-- save/remove gif or error modal -->
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -60,6 +70,7 @@
         </div>
       </div>
     </div>
+    <!-- link script and jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>

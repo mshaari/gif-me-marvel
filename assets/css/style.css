@@ -1,18 +1,20 @@
+/* entire page background animated infinitely */
 html {
-    background: linear-gradient(325deg, #670909, #aa1d1d, #ff0000, #ff8383);
-    background-size: 600% 600%;
-    animation: AnimationName 10s ease infinite;
+    background: linear-gradient(225deg, #000000, #a6a6a6, #b50000, #740000, #8b0000, #000000);
+    background-size: 400% 400%;
+    animation: ombre 10s ease infinite;
     width: 100vw;
     min-height: 100vh;
 }
 
-@keyframes AnimationName {
+/* page gradient animation */
+@keyframes ombre {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
 
-
+/* define application font and alignment */
 body {
     font-family: 'Anton', sans-serif;
     text-align: center;
@@ -26,6 +28,7 @@ header {
     padding-top: 200px;
 }  
 
+/* headings styles */
 h1 {
     color: white;
     font-size: 100px;
@@ -39,6 +42,7 @@ h2 {
     font-weight: bolder;
 }
 
+/* search input width and alignment */
 .input{
     width: 50%;
     margin-right:10px;
@@ -50,24 +54,41 @@ h2 {
     align-items: center;
 }
 
-#footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+/* giphy attribution */
+footer {
+    text-align: right;
+    position: relative;
+    bottom: 0px;
+    padding: 20px 20px 50px 10px;
     height: 2.5rem;
 }
 
+/* loading page styles */
 .loadingPage{
-    padding-top: 200px;
+    padding-top: 150px;
 }
 
 .loadingPage img{
     width: 15%;
+    margin: 25px;
 }
 
+/* progress bar and info styles */
+.progress {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#loadingProgress {
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+}
+
+/* MY FAVORITE GIFS button style */
 #favoriteGifs {
     color: white;
-    background-color: rgb(99,0,0);
+    background-color: #740000;
     border: none;
     font-weight: bold;
     margin: 15px;
@@ -78,10 +99,11 @@ h2 {
 }
 
 #favoriteGifs:hover {
-    color: rgb(99,0,0);
+    color: #740000;
     background-color: white;
 }
 
+/* character page and card styles */
 .characterPage {
     padding: 25px;
 }
@@ -103,23 +125,47 @@ h2 {
     right: 25px;
 }
 
-img{
-    margin: 10px;
-}
-
+/* GIFs styles */
 .gifs {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.gifs img:hover, .favoriteGifsPage img:hover {
+/* favorite items star */
+.starItem {
+    width: 25px;
+    position: relative;
+    top: -165px;
+    left: -55px;
+}
+
+/* GIFs hover transforms */
+.gifGroup:hover {
+    z-index: 1;
+}
+
+.gifItem:hover {
     transform: scale(1.25);
-    border: 15px ridge #ba0909;
+    outline: 15px ridge #ba0909;
     box-shadow: 6px 7px 19px 15px white;
 }
 
+.gifItem:hover + .starItem {
+    transform: scale(2);
+    top: -185px;
+    left: -25px;
+}
+
+/* modal styles */
 .modal {
     color: black;
     text-align: center;
+}
+
+.modal-card-body {
+    font-size: 20px;
+    font-weight: lighter;
 }
 
 .modal-card-foot {
@@ -129,27 +175,4 @@ img{
 .modal-card-foot button {
     width: 50%;
     font-weight: bold;
-}
-
-#footer {
-    text-align: right;
-    position: relative;
-    bottom: 0px;
-    padding: 10px 50px 50px 10px;
-    height: 2.5rem;
-}
-
-@media screen and (max-width: 767px) {
-    #footer img {
-        position: relative;
-        bottom: -10px;
-        max-width: 75%;
-        max-height: 75%;
-        height: auto;
-        width: auto;
-
-    }
-    #marvelAttribution {
-        font-size: 75%;
-    }
 }
