@@ -2,7 +2,7 @@
 
 >**Application Link:** [GIF ME MARVEL](https://mshaari.github.io/gif-me-marvel/)
 >
->**View:** [Description](#description) / [Application Details](#application-details) / [Application Sample Videos](#application-sample-videos) / [Responsive Layout Example](#responsive-layout)
+>**View:** [Description](#description) / [Application Details](#application-details) / [Application Sample Videos](#application-sample-videos) / [Responsive Layout Example](#responsive-layout) / [Credit](#credit)
 >
 >**Site Preview:**
 >
@@ -12,14 +12,16 @@
 >
 >![GIF ME MARVEL](./assets/images/GIF%20ME%20MARVEL.gif "GIF ME MARVEL")
 ## **DESCRIPTION**
-> Topic Assessed: 
+> We wanted to build a web application that used APIs that involve two things many people love: marvel and gifs. We built this project in order for people to be able to search for their favorite Marvel superhero and be presented with both a short descriptiong of said superhero as well as a page of gifs they can look through and favorite. This allows people to store these gifs for later use without having to download them directly to their device and instead just revisit the site whenever they want to.
+>
+> We learned several things while working on this project. One of which would be properly attributing the content gained from their respective APIs. Another would be how much debugging can go into a project of this size. There were times when a minor change or typo can result in the breaking of code. We also learned more about the pros and cons of working with other people. Brainstorming ideas for both the content of the web application as well as during the debugging process was extremely beneficial and we rarely stayed stuck on any one problem/feature for an extended period of time. On the other hand, people tend to work at different paces so it is very easy for those who are a little less comfortable in terms of coding can be left behind a little during the development process. And, if there are time constraints, those who are faster may be subjected to more work in order to meet time demands.
 > 
-> **HTML, CSS/CSS Framework, JavaScript/jQuery**
-> 
-> **Web/Third Party/Server-Side APIs, ClientSide Storage**
-> 
-> **GitHub Workflow**
-> 
+## **INSTALLATION**
+> Installation is not required. All that is required is to visit the deployed site at: https://mshaari.github.io/gif-me-marvel/ 
+
+## **USAGE**
+> To start, head to the URL provided above. Next, type into the search bar a Marvel superhero you would like to get information and gifs for. Press the search button and watch the page fill up with gifs via Giphy. From there, you can click on individual gifs and favorite them. Any gifs saved to your favorites page can be found by clicking the "MY FAVORITE GIFS" at the top right of the page. If you want to remove a gif from your page, you can click the gif from there and remove it from the "MY FAVORITE GIFS" page.
+
 ### **Our Task**
 *GIF ME MARVEL* allows a user to search up and image and description of their favorite MARVEL character. It also allows the user to save related GIFs on their local device.
 > Create an application from scratch. 
@@ -230,3 +232,14 @@ THEN I can see all my saved GIFs and have the option to remove them
 >![Main Page](./assets/images/650px%20Main%20Page.png "Main Page")
 >![Character Page](./assets/images/650px%20Character%20Page.png "Character Page")
 >![Favorites Page](./assets/images/650px%20Favorites%20Page.png "Favorites Page")
+
+## **CREDIT**
+### Group Members
+> [Fanny](https://github.com/fannychen623)
+> [Michael](https://github.com/mshaari)
+> [Mauritz](https://github.com/MauritzMaj)
+> [Matthew](https://github.com/provostma21)
+
+### API Attributions
+> [MARVEL](https://developer.marvel.com/)
+> [GIPHY](https://api.giphy.com/)
