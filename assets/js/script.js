@@ -165,7 +165,11 @@ function loadCharacter() {
     if (characterIndex === '' || characterIndex === -1 || typeof characterIndex === "undefined") {
         $('#selectedGif').empty();
         $('.modal-card-title').text("ERROR: ");
-        $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        if ($('input').val()==="") {
+            $('<p>Invalid blank input. Please enter a valid Marvel character.</p>').appendTo('#selectedGif');
+        } else {
+            $('<p>' + $('input').val() + ' is not a valid Marvel character.</p>').appendTo('#selectedGif');
+        }
         $('#addFavorite').hide();
         $('#deleteFavorite').hide();
         $('.modal-card-foot').children('.is-warning').text('OK');
