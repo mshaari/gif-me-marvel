@@ -116,9 +116,9 @@ function fetchMarvelAPI () {
     var randomI = Math.floor(Math.random() * 3);
     // define url based on random number
     if (randomI === 0) {
-        var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
+        var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=b4cf87a8867f352c532cbf6b1548a717&hash=0c0886ca5bcf5b7a6ab7cf772bc6995a&limit=100&offset=`;
     } else if (randomI === 1) {
-        var marvelUrl = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
+        var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=e504bca68a98973035de00e2c0fe0f16&hash=cb63b4d43307c792ab1e0126166855c4&limit=100&offset=`;
     } else {
         var marvelUrl = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=22cfa02cd52325c33f215b6da7bd306b&hash=b0713e165311f9c1c5fdb62f227f71f5&limit=100&offset=`;
     };
