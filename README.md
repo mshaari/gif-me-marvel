@@ -12,15 +12,15 @@
 >
 >![GIF ME MARVEL](./assets/images/GIF%20ME%20MARVEL.gif "GIF ME MARVEL")
 ## **DESCRIPTION**
-> We wanted to build a web application that used APIs that involve two things many people love: marvel and gifs. We built this project in order for people to be able to search for their favorite Marvel superhero and be presented with both a short descriptiong of said superhero as well as a page of gifs they can look through and favorite. This allows people to store these gifs for later use without having to download them directly to their device and instead just revisit the site whenever they want to.
+> We wanted to build a web application that used two APIs that many people love: MARVEL and GIPHY. This application was created for those who want to learn more about their favorite MARVEL superhero. Users will be presented with both a short description and related gifs of searched superhero. They will also be allowed to favorite/save gifs, storing them in their local storage, to lookup in the future use when they revisit the site.
 >
-> We learned several things while working on this project. One of which would be properly attributing the content gained from their respective APIs. Another would be how much debugging can go into a project of this size. There were times when a minor change or typo can result in the breaking of code. We also learned more about the pros and cons of working with other people. Brainstorming ideas for both the content of the web application as well as during the debugging process was extremely beneficial and we rarely stayed stuck on any one problem/feature for an extended period of time. On the other hand, people tend to work at different paces so it is very easy for those who are a little less comfortable in terms of coding can be left behind a little during the development process. And, if there are time constraints, those who are faster may be subjected to more work in order to meet time demands.
+> Throughout this project, we learned several things from as simple as properly attributing content from server side APIs to as difficult as hours of debugging for application issues. There were times when a minor change or typo can result in the breaking of code. Valuable experiences regarding working with a team on cloud-based hosting service (GitHub) were gained. Working with a team on events such as brainstorming and debugging made it a more efficient and knowledgable learning process. However, challenges from different work paces and time constraints were also identified. Overall, this project was a very good learning experience and we are proud to present out application "GIF ME MARVEL" to users of interest!
 > 
 ## **INSTALLATION**
-> Installation is not required. All that is required is to visit the deployed site at: https://mshaari.github.io/gif-me-marvel/ 
+> Installation is not required. All that is required is to visit the deployed site at: [GIF ME MARVEL](https://mshaari.github.io/gif-me-marvel/)
 
 ## **USAGE**
-> To start, head to the URL provided above. Next, type into the search bar a Marvel superhero you would like to get information and gifs for. Press the search button and watch the page fill up with gifs via Giphy. From there, you can click on individual gifs and favorite them. Any gifs saved to your favorites page can be found by clicking the "MY FAVORITE GIFS" at the top right of the page. If you want to remove a gif from your page, you can click the gif from there and remove it from the "MY FAVORITE GIFS" page.
+> To start, head to the URL provided above. Next, type into the search bar the MARVEL superhero of interest. Click the 'search' button or press on the 'enter' key and watch the page fill up with information and GIFs. From there, you can click on any individual GIF and favorite them. Any GIFs saved to your favorites page can be found by clicking the "MY FAVORITE GIFS" at the top right of the page. If you want to remove a GIF from your storage, you can click the same GIF again or remove it from the "MY FAVORITE GIFS" page.
 
 ### **Our Task**
 *GIF ME MARVEL* allows a user to search up and image and description of their favorite MARVEL character. It also allows the user to save related GIFs on their local device.
@@ -235,11 +235,17 @@ THEN I can see all my saved GIFs and have the option to remove them
 
 ## **CREDIT**
 ### Group Members
-> [Fanny](https://github.com/fannychen623)
 > [Michael](https://github.com/mshaari)
+> 
+> [Fanny](https://github.com/fannychen623)
+> 
 > [Mauritz](https://github.com/MauritzMaj)
+> 
 > [Matthew](https://github.com/provostma21)
+> 
 
 ### API Attributions
 > [MARVEL](https://developer.marvel.com/)
+> 
 > [GIPHY](https://api.giphy.com/)
+> 

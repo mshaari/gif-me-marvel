@@ -236,8 +236,8 @@ function loadGifs() {
         offsetValue = offsetValue + 50;
     };
     // clear section and add GIPHY attribution footer
-    $("footer").remove();
-    $('<footer"><img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"></footer>').insertAfter('.gifs');
+    $('footer').remove();
+    $('<footer><img src="./assets/images/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif"></footer>').insertAfter('.gifs');
     // clear input for next search
     $('input').val("");
 };
